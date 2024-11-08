@@ -6,7 +6,6 @@ public class part_03_27_AV_Club {
 
         while(true){
             String input = scanner.nextLine();
-            
             if(input.equals("")){
                 break;
             }
