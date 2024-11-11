@@ -1,5 +1,4 @@
 import java.util.Scanner;
-import java.util.ArrayList;
 
 public class part_03_32_personalDetails{
     public static void main(String[] args){
@@ -7,6 +6,7 @@ public class part_03_32_personalDetails{
 
         String longestName = "";
         int currentLongestNameSize = 0;
+
         int numberOfInputs = 0;
         double averageYear = 0;
 
@@ -15,6 +15,7 @@ public class part_03_32_personalDetails{
             if(input.equals("")){
                 break;
             }
+            
             String[] inputArray = input.split(",");
             String name = inputArray[0];
             int nameSize = inputArray[0].length();
