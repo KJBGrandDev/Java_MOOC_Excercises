@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class part_03_27_AV_Club {
+public class part_03_27_AVClub {
     public static void main(String[] args){
         Scanner scanner = new Scanner(System.in);
 

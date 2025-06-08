@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class part_03_30_Age_Of_The_Oldest{
+public class part_03_30_ageOfTheOldest{
     public static void main(String[] args){
         Scanner scanner = new Scanner(System.in);
 

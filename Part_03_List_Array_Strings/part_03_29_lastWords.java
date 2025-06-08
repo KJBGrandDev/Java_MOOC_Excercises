@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class part_03_29_Last_Words {
+public class part_03_29_lastWords {
     public static void main(String[] args){
         Scanner scanner = new Scanner(System.in);
 

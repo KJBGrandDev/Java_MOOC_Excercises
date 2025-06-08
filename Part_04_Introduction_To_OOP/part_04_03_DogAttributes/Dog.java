@@ -8,8 +8,7 @@
  *
  * @author Basalan
  */
-public class Dog
-{
+public class Dog {
     private String name;
     private String breed;
     private int age;
