@@ -36,27 +36,15 @@ public class LiquidContainers {
             }
 
             if(command.equals("move")){
-                if(amount > 0 && first != 0){
-                    if(amount + second <= maxValue){
-                        if(amount > first){
-                            second += first;
-                            first = 0;
-                        } else {
-                            first -= amount;
-                            second += amount;
-                        }
-                    } else {
-                        if(second + amount >= maxValue){
-                            int minus = (maxValue - second);
+                if(amount > 0 && amount > first){
+                    amount = first;
+                }
 
-                            if(amount >= minus){
-                                first -= minus;
-                            } else {
-                                first -= amount;
-                            }
-                            second = maxValue;
-                        }
-                    }
+                first -= amount;
+                second += amount;
+
+                if (second > maxValue){
+                    second = maxValue;
                 }
             }
 
