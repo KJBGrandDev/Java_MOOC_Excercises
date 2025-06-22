@@ -10,11 +10,13 @@ public class Main {
         // insert test code here
         int[] array = {3, 1, 5, 99, 3, 12};
         String[] array2 = {"c","b","a","d"};
+
         ArrayList<Integer> list = new ArrayList<>();
         list.add(1);
         list.add(3);
         list.add(5);
         list.add(2);
+
         ArrayList<String> listTwo = new ArrayList<>();
         listTwo.add("b");
         listTwo.add("c");
