@@ -6,7 +6,8 @@ public class RecipeSearch {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        UserInterface newUI = new UserInterface(scanner);
+        Recipe recipe = new Recipe();
+        UserInterface newUI = new UserInterface(scanner, recipe);
 
         newUI.start();
     }

@@ -1,19 +1,25 @@
 package Part_07_Programming_Paradigms_Algorithms.part_07_06_RecipeSearch;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 import java.io.File;
 
 public class UserInterface {
     private Scanner scanner;
+    private Recipe recipe;
+    private ArrayList<Recipe> recipeList;
 
-    public UserInterface(Scanner scanner){
+    public UserInterface(Scanner scanner, Recipe recipe){
         this.scanner = scanner;
+        this.recipe = recipe;
+        this.recipeList = new ArrayList<>();
     }
 
     public void start(){
         System.out.print("File to read: ");
-        String recipe = scanner.nextLine();
+        String fileName = scanner.nextLine();
 
+        recipeCreator(fileName);
         while (true){
             System.out.println("\nCommands:");
             System.out.println("list - lists the recipes");
@@ -26,146 +32,93 @@ public class UserInterface {
             if(command.equals("stop")){
                 break;
             }
-            processCommand(command,recipe);
+            processCommand(command,fileName);
         }
     }
 
     public void processCommand(String command, String recipe){
         switch(command){
             case "list":{
-                list(recipe);
+                list();
                 break;
             }
             case "find name":{
-                findByName(recipe);
+                findByName();
                 break;
             }
             case "find cooking time":{
-                findByCookingTime(recipe);
+                findByCookingTime();
                 break;
             }
             case "find ingredient":{
-                findByIngredient(recipe);
+                findByIngredient();
                 break;
             }
         }
     }
 
-    public void list(String recipe){
-        File file = new File(recipe);
+    public void recipeCreator(String fileName){
+        File file = new File(fileName);
         try(Scanner scanner = new Scanner(file)){
-            int counter = 0;
-            while (scanner.hasNextLine()){
-                String nextLine = scanner.nextLine();
-                if(counter == 0){
-                    System.out.print(nextLine);
-                }
-                if(counter == 1){
-                    System.out.println(", cooking time: " + nextLine);
-                }
-                counter++;
-                if(nextLine.isEmpty()){
-                    counter = 0;
+            while(scanner.hasNextLine()){
+                Recipe recipe = new Recipe();
+
+                String name = scanner.nextLine();
+                recipe.setName(name);
+
+                String cookingTime = scanner.nextLine();
+                recipe.setCookingTimeMax(Integer.parseInt(cookingTime));
+
+                recipeList.add(recipe);
+
+                while(scanner.hasNextLine()){
+                    String nextLine = scanner.nextLine();
+                    recipe.setIngredients(nextLine);
+
+                    if(nextLine.isEmpty()){
+                        break;
+                    }
                 }
             }
+
         }catch (Exception e){
             System.out.println("Error: " + e);
         }
     }
-    public void findByName(String recipe) {
+
+    public void list(){
+        for(Recipe recipe: recipeList){
+            System.out.println(recipe.getName() + ", cooking time: " + recipe.getCookingTimeMax());
+        }
+    }
+    public void findByName() {
         System.out.print("Search word: ");
         String input = scanner.nextLine();
 
-        File file = new File(recipe);
-        try (Scanner scanner = new Scanner(file)) {
-            int counter = 0;
-            boolean found = false;
-            while (scanner.hasNextLine()) {
-                String nextLine = scanner.nextLine();
-                if (counter == 0) {
-                    if(nextLine.contains(input)){
-                        System.out.print(nextLine);
-                        found = true;
-                    }
-                }
-                if(counter == 1 && found){
-                    System.out.println(", cooking time: " + nextLine);
-                }
-                counter++;
-                if(nextLine.isEmpty()){
-                    counter = 0;
-                }
+        for(Recipe recipe: recipeList){
+            if(recipe.getName().contains(input)){
+                System.out.println(recipe.getName() + ", cooking time: " + recipe.getCookingTimeMax());
             }
-        } catch (Exception e){
-            System.out.println("Error: " + e);
         }
     }
-    public void findByCookingTime(String recipe){
+    public void findByCookingTime(){
         System.out.print("Max cooking time: ");
         String input = scanner.nextLine();
 
-        File file = new File(recipe);
-        try(Scanner scanner = new Scanner(file)){
-            int counter = 0;
-            boolean found = false;
-            String name = "";
-            String cookingTime = "";
-            while (scanner.hasNextLine()){
-                String nextLine = scanner.nextLine();
-                if(counter == 0){
-                    name = nextLine;
-                }
-                if(counter == 1){
-                    if(Integer.parseInt(nextLine) <= Integer.parseInt(input)){
-                        cookingTime = ", cooking time: " + nextLine;
-                        found = true;
-                    }
-                    if(found){
-                        System.out.println(name + cookingTime);
-                    }
-                }
-                counter++;
-                if(nextLine.isEmpty()){
-                    counter = 0;
-                }
+        for(Recipe recipe: recipeList){
+            if(recipe.getCookingTimeMax() <= Integer.parseInt(input)){
+                System.out.println(recipe.getName() + ", cooking time: " + recipe.getCookingTimeMax());
             }
-        }catch (Exception e){
-            System.out.println("Error: " + e);
         }
     }
-    public void findByIngredient(String recipe){
+    public void findByIngredient(){
         System.out.print("Ingredient: ");
         String input = scanner.nextLine();
 
-        File file = new File(recipe);
-        try(Scanner scanner = new Scanner(file)){
-            int counter = 0;
-            boolean found = false;
-            String name = "";
-            String cookingTime = "";
-            System.out.println("\nRecipes:");
-            while (scanner.hasNextLine()){
-                String nextLine = scanner.nextLine();
-                if(counter == 0){
-                    name = nextLine;
-                }
-                if(counter == 1){
-                    cookingTime = ", cooking time: " + nextLine;
-                }
-                if(counter >= 2){
-                    if(nextLine.equals(input)){
-                        System.out.println(name + cookingTime);
-                    }
-                }
-                counter++;
-                if(nextLine.isEmpty()){
-                    counter = 0;
-                    name = "";
-                    cookingTime = "";
-                }
+        for(Recipe recipe : recipeList){
+            if(recipe.containsThisIngredient(input)){
+                System.out.println(recipe.getName() + ", cooking time: " + recipe.getCookingTimeMax());
             }
-        }catch (Exception e){
-            System.out.println("Error: " + e);
         }
     }
 }
