@@ -63,27 +63,13 @@ public class UserInterface {
     }
 
     public void getObservationData(){
-        for(String i : birds.getObservation().keySet()){
-            for(String j : birds.getBirds().keySet()){
-                if(i.equals(j)){
-                    System.out.println(j + " (" + birds.getBirds().get(j) + "):" + birds.getObservation().get(i) + " observations");
-                }
-            }
-        }
+        birds.getObservation();
     }
 
     public void getBirdDetails(){
         System.out.print("Bird? ");
         String birdName = scanner.nextLine();
 
-        for(String i : birds.getObservation().keySet()){
-            if(i.equals(birdName)){
-                for(String j : birds.getBirds().keySet()){
-                    if(j.equals(birdName)){
-                        System.out.println(j + " (" + birds.getBirds().get(j) + "):" + birds.getObservation().get(i) + " observations");
-                    }
-                }
-            }
-        }
+        birds.getObservationOnSpecificBird(birdName);
     }
 }

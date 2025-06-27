@@ -28,8 +28,26 @@ public class Birds {
         return bird;
     }
 
-    public HashMap<String,Integer> getObservation(){
-        return observation;
+    public void getObservation(){
+        for(String i : observation.keySet()){
+            for(String j : bird.keySet()){
+                if(i.equals(j)){
+                    System.out.println(j + " (" + bird.get(j) + "):" + observation.get(i) + " observations");
+                }
+            }
+        }
+    }
+
+    public void getObservationOnSpecificBird(String birdName){
+        for(String i : observation.keySet()){
+            if(i.equals(birdName)){
+                for(String j : bird.keySet()){
+                    if(j.equals(birdName)){
+                        System.out.println(j + " (" + bird.get(j) + "):" + observation.get(i) + " observations");
+                    }
+                }
+            }
+        }
     }
 
 }
