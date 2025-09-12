@@ -2,7 +2,7 @@ package Part_04_Introduction_To_OOP.part_04_10_Song;
 
 public class Main {
     public static void main(String[] args) {
-        // This is just an empty main method, where you can test your
+        // This is just an empty OOP_CLASS_ACTIVITIES.WaterTank.WaterTank.main method, where you can test your
         // Song class. You can for instance try this:
 
          Song garden = new Song("In The Garden", 10910);

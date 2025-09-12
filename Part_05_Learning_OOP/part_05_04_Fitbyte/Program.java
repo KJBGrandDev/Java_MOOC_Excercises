@@ -2,7 +2,7 @@ package Part_05_Learning_OOP.part_05_04_Fitbyte;
 
 public class Program {
     public static void main(String[] args) {
-        // This is an empty main method where you can experiment
+        // This is an empty OOP_CLASS_ACTIVITIES.WaterTank.WaterTank.main method where you can experiment
         // with your Fitbyte class
 
         Fitbyte fitbyte = new Fitbyte(30, 60);

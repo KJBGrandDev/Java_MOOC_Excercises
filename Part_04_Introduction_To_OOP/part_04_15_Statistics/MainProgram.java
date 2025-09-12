@@ -9,7 +9,7 @@ public class MainProgram {
         // however, remove all unnecessary code when doing the final parts of the exercise
 
         // In order for the tests to work, the objects must be created in the
-        // correct order in the main program. First the object that tracks the total
+        // correct order in the OOP_CLASS_ACTIVITIES.WaterTank.WaterTank.main program. First the object that tracks the total
         // sum, secondly the object that tracks the sum of even numbers,
         // and lastly the one that tracks the sum of odd numbers!
         Statistics statistics = new Statistics();
