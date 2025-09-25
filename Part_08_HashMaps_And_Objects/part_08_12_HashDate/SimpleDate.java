@@ -69,4 +69,12 @@ public class SimpleDate {
 
         return false;
     }
+
+    public int hashCode(){
+        int hash = 3;
+        hash = 17 * hash + this.year;
+        hash = 17 * hash + this.month;
+        hash = 17 * hash + this.day;
+        return hash;
+    }
 }
