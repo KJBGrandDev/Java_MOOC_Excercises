@@ -1,6 +1,7 @@
-package OOP_CLASS_ACTIVITIES.CarFuel;
+package OOP_CLASS_ACTIVITIES.SpecializedCarTypes;
 
-public class CarFuel {
+public class Car {
+    private String brand;
     private double fuelCapacity;
     private double currentFuel;
     private double fuelEfficiency;
@@ -10,7 +11,8 @@ public class CarFuel {
     private static final String text_nR = "\u001B[38;5;197m";
     private static final String text_cR = "\u001B[0m";
 
-    public CarFuel(double fuelCapacity,double fuelEfficiency){
+    public Car(String brand,double fuelCapacity,double fuelEfficiency){
+        this.brand = brand;
         this.fuelCapacity = fuelCapacity;
         this.currentFuel = 0;
         this.fuelEfficiency = fuelEfficiency;
@@ -26,20 +28,18 @@ public class CarFuel {
 
 
     public void refuel(double liters){
-         if(liters <= 0){
+        if(liters <= 0){
             System.out.println(text_nR + "\nInvalid input! " + text_n0 + "Please give a " + text_nG + "positive value!" + text_cR);
 
-            pause();
             return;
         }
 
-         if(currentFuel == fuelCapacity){
-             System.out.println(text_nR + "\nTank is already" + text_nG +" Full!" + text_cR);
-             System.out.println(text_n0 + "Cannot add anymore fuel!" + text_cR);
+        if(currentFuel == fuelCapacity){
+            System.out.println(text_nR + "\nTank is already" + text_nG +" Full!" + text_cR);
+            System.out.println(text_n0 + "Cannot add anymore fuel!" + text_cR);
 
-             pause();
-             return;
-         }
+            return;
+        }
 
         if(this.currentFuel + liters > this.fuelCapacity){
             double overflow = (this.currentFuel + liters) - this.fuelCapacity;
@@ -47,44 +47,34 @@ public class CarFuel {
             currentFuel = fuelCapacity;
             System.out.println(text_n0 + "Fuel tank is now " + text_nG + "full!" + text_cR);
 
-            pause();
         } else{
             this.currentFuel += liters;
             System.out.println(text_n0 + "\nSuccessfully refueled " + text_nG + liters + " Ltr." + text_n0 + " of fuel!" + text_cR);
-
-            pause();
         }
     }
 
     public void drive(double distance){
         if(distance <= 0){
             System.out.println(text_nR + "\nInvalid distance!" + text_n0 + " Please give a positive " + text_nG + "value!" + text_cR);
-
-            pause();
         }
 
         if(currentFuel == 0){
             System.out.println(text_nR + "\nFuel Tank Empty!" + text_n0 + " You need to " + text_nG + "refuel" + text_n0 + " the car first!" + text_cR);
-
-            pause();
             return;
         }
 
         if(canDrive(distance)){
             double fuelToBeUsed = distance / this.fuelEfficiency;
             currentFuel -= fuelToBeUsed;
-            System.out.println(text_n0 + "\nDriving: " + text_nG + distance + text_nG + " km" + text_n0 + "..." + text_cR);
-            System.out.println(text_n0 + "Fuel left: " + text_nG + this.currentFuel + "L" + text_cR);
+            System.out.println(text_n0 + "\nDriving: " + text_nG + distance + " km" + text_n0 + "..." + text_cR);
+            System.out.println(text_n0 + "Fuel left: " + text_nG + this.getCurrentFuel() + "L" + text_cR);
 
-            pause();
         } else {
             System.out.println(text_n0 + "\nDriving: " + text_nG + distance + text_nG + " km" + text_n0 + "..." + text_cR);
             System.out.println(text_nR + "Not enough fuel!" + text_n0 + " You drove " + text_nG + this.estimateRange() + " km" + text_n0 + " until tank emptied" + text_cR);
 
             currentFuel = 0;
             System.out.println(text_n0 + "Fuel left: " + text_nG + this.currentFuel + "L" + text_cR);
-
-            pause();
         }
     }
 
@@ -93,20 +83,14 @@ public class CarFuel {
     }
 
     public boolean canDrive(double distance){
-        return this.currentFuel - (distance / this.fuelEfficiency) > 0;
+        return (distance / this.fuelEfficiency) <= this.currentFuel ;
     }
 
     public double estimateRange(){
         return currentFuel * fuelEfficiency;
     }
 
-    public  void pause(){
-        System.out.println(text_n0 + "\nGoing back to dashboard after " + text_nG + "5 "+ text_n0 + "seconds..." + text_cR);
-
-        try{
-            Thread.sleep(5000);
-        } catch (InterruptedException e ){
-            Thread.currentThread().interrupt();
-        }
+    public String getBrand(){
+        return this.brand;
     }
 }

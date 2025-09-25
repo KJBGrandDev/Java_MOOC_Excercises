@@ -26,11 +26,11 @@ public class Main {
             try{
                 tankCapacity = Double.parseDouble(rawTankCapacity);
             } catch (NumberFormatException e){
-                System.out.println(text_nR +"Invalid input!" + text_nO + "Please give a" + text_nG + " valid" + text_nO + " value!");
+                System.out.println(text_nR +"Invalid input!" + text_nO + " Please give a" + text_nG + " valid" + text_nO + " value!" + text_cR);
                 continue;
             }
             if(tankCapacity <= 0){
-                System.out.println(text_nR + "Invalid input!" + text_nO + " Please give a" + text_nG + " positive" + text_nO + " value!");
+                System.out.println(text_nR + "Invalid input!" + text_nO + " Please give a" + text_nG + " positive" + text_nO + " value!" + text_cR);
                 continue;
             }
 
@@ -40,11 +40,11 @@ public class Main {
             try{
                 fuelEfficiency = Double.parseDouble(rawFuelEfficiency);
             } catch (NumberFormatException e){
-                System.out.println(text_nR +"Invalid input!" + text_nO + "Please give a" + text_nG + " valid" + text_nO + " value!");
+                System.out.println(text_nR +"Invalid input!" + text_nO + " Please give a" + text_nG + " valid" + text_nO + " value!" + text_cR);
                 continue;
             }
             if(fuelEfficiency <= 0){
-                System.out.println(text_nR + "Invalid input!" + text_nO + " Please give a" + text_nG + " positive" + text_nO + " value!");
+                System.out.println(text_nR + "Invalid input!" + text_nO + " Please give a" + text_nG + " positive" + text_nO + " value!" + text_cR);
                 continue;
             }
             initialization = false;
@@ -89,6 +89,7 @@ public class Main {
                         refuel = Integer.parseInt(rawRefuel);
                     } catch (NumberFormatException e) {
                         System.out.println("Invalid Input! Please give a valid value!");
+                        continue;
                     }
 
                     newCarFuel.refuel(refuel);
@@ -104,6 +105,7 @@ public class Main {
                         distance = Integer.parseInt(rawDistance);
                     } catch (NumberFormatException e) {
                         System.out.println(text_nR + "Invalid Input!" + text_nO + " Please give a " + text_nG + "valid" + text_nO + " value!");
+                        continue;
                     }
 
                     newCarFuel.drive(distance);
