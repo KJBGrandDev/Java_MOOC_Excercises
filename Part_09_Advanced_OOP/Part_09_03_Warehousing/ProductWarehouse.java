@@ -1,6 +1,4 @@
-package Part_09_Advanced_OOP.Part_09_02_Warehousing;
-
-import java.lang.reflect.Array;
+package Part_09_Advanced_OOP.Part_09_03_Warehousing;
 
 public class ProductWarehouse extends Warehouse{
     private String productName;

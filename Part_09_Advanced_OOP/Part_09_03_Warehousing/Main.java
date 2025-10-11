@@ -1,4 +1,4 @@
-package Part_09_Advanced_OOP.Part_09_02_Warehousing;
+package Part_09_Advanced_OOP.Part_09_03_Warehousing;
 
 public class Main {
     public static void main(String[] args){
