@@ -2,7 +2,7 @@ package Part_09_Advanced_OOP.Part_09_04_DifferentKindsOfBoxes;
 
 import java.util.ArrayList;
 
-public class OneItemBox {
+public class OneItemBox extends Box {
     private ArrayList<Item> items;
 
     public OneItemBox(){
@@ -11,7 +11,7 @@ public class OneItemBox {
 
     public void add(Item item){
         if(items.isEmpty()){
-            items.add(item);
+            this.items.add(item);
         }
     }
 
@@ -24,8 +24,8 @@ public class OneItemBox {
     }
 
     public boolean isInBox(Item item){
-        for(Item items: this.items){
-            if (this.items.contains(items)) {
+        for(Item i: items){
+            if(i.equals(item)){
                 return true;
             }
         }

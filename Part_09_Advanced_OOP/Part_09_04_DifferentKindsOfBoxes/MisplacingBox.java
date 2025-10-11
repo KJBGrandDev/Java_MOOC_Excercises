@@ -2,7 +2,7 @@ package Part_09_Advanced_OOP.Part_09_04_DifferentKindsOfBoxes;
 
 import java.util.ArrayList;
 
-public class MisplacingBox {
+public class MisplacingBox extends Box {
     private ArrayList<Item> items;
 
     public MisplacingBox(){
