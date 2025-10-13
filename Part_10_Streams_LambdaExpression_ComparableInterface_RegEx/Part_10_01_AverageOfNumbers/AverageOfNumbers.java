@@ -1,0 +1,4 @@
+package Part_10_Streams_LambdaExpression_ComparableInterface_RegEx.Part_10_01_AverageOfNumbers;
+
+public class AverageOfNumbers {
+}
