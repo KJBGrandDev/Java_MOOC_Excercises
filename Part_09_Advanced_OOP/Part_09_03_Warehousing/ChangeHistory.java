@@ -21,7 +21,7 @@ public class ChangeHistory {
         if(this.history.isEmpty()){
             return 0.0;
         } else {
-            largest = history.getFirst();
+            largest = history.get(0);
             for(double i: this.history){
                 if(i > largest){
                     largest = i;
@@ -37,7 +37,7 @@ public class ChangeHistory {
         if(this.history.isEmpty()){
             return 0.0;
         } else {
-            lowest = history.getFirst();
+            lowest = history.get(0);
             for(double i: this.history){
                 if(i < lowest){
                     lowest = i;
