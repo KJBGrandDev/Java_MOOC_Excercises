@@ -10,7 +10,7 @@ public class LiteracyComparison {
 
     public static void main(String[] args) {
         try {
-            Files.lines(Paths.get("literacy.csv"))
+            Files.lines(Paths.get("Part_10_Streams_LambdaExpression_ComparableInterface_RegEx/Part_10_13_LiteracyComparison/literacy.csv"))
                     .map(s -> s.split(","))
                     .filter(s -> s.length >= 6)
                     .sorted((a, b) -> Double.compare(
