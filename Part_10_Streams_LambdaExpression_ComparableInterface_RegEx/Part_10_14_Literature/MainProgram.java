@@ -22,7 +22,7 @@ public class MainProgram {
             bookList.add(newBook);
         }
         Comparator<Book> comparator = Comparator.comparing(Book::getAgeRecommendation).thenComparing(Book::getBookName);
-        Collections.sort(bookList,comparator);
+        bookList.sort(comparator);
 
         System.out.printf("%d books in total.\n\n", bookList.size());
         System.out.println("Books:");
