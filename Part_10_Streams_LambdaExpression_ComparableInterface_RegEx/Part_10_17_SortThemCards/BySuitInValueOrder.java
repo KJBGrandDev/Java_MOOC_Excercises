@@ -8,7 +8,11 @@ public class BySuitInValueOrder implements Comparator<Card> {
         if(c1.getSuit().ordinal() < c2.getSuit().ordinal()){
             return -1;
         } else if(c1.getSuit().ordinal() == c2.getSuit().ordinal()){
-            return 0;
+            if(c1.getValue() < c2.getValue()){
+                return -1;
+            } else {
+                return 1;
+            }
         }
         return 1;
     }
