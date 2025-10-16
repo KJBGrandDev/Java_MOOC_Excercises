@@ -1,7 +1,5 @@
 package Part_10_Streams_LambdaExpression_ComparableInterface_RegEx.Part_10_17_SortThemCards;
 
-import Part_09_Advanced_OOP.Part_09_01_ABC.B;
-
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -25,11 +23,7 @@ public class Hand implements Comparable<Hand> {
     }
 
     public void sort(){
-        List<Card> sortedList = cardList.stream().sorted(Comparator.comparing(Card::getValue)).collect(Collectors.toCollection(ArrayList::new));
-
-        for(Card i : sortedList){
-            System.out.println(i);
-        }
+        this.cardList = cardList.stream().sorted().collect(Collectors.toCollection(ArrayList::new));
     }
 
     public int compareTo(Hand hand){
