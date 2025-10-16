@@ -1,9 +1,8 @@
 package Part_10_Streams_LambdaExpression_ComparableInterface_RegEx.Part_10_17_SortThemCards;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
-import java.util.OptionalInt;
+import Part_09_Advanced_OOP.Part_09_01_ABC.B;
+
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class Hand implements Comparable<Hand> {
@@ -43,5 +42,11 @@ public class Hand implements Comparable<Hand> {
             return 0;
         }
         return 1;
+    }
+
+    public void sortBySuit(){
+        BySuitInValueOrder sortBySuit = new BySuitInValueOrder();
+
+        Collections.sort(cardList,sortBySuit);
     }
 }
